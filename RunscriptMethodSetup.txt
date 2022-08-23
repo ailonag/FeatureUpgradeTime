@@ -1,0 +1,30 @@
+Feature Upgrade time using the Run Script method:
+Leveraging the Run Script feature in Endpoint manager, we can collect Feature upgrade data on-demand  in environments where  expanding the Hardware inventory isn’t possible. This data is stored in the database, however, the data will clean up during maintenance tasks which, by default is 90 days. Unlike the Hardware inventory method, you will retain a history between the builds
+ 1: Create the upgrade collection like in the Hardware Inventory method 
+2 Create Run Script by going to Software Library > Scripts > Create Script. 
+ 
+Give the script a unique name (make a note of this as we’ll need this for later, open txt file below and copy / paste intoscript and click ok..  Once added the script will need to be reviewed and approved in the console before it will be available to run on clients.  
+ 
+3:  Run Script against your upgraded workstations by right clicking on the collection you want to target and select “Run Script” . Select the script that was created in the previous step and Next 2 times.  Allow the script to run and the results should look like this. 
+ 
+
+4:  Once the script is complete open Power BI Template  below.  And you will be presented with the required parameters 
+ 
+ 
+1: SQL Server name for the Endpoint Manager Database
+2: Database name 
+3: ContentID of the Feature Upgrade Content.  The easiest way to get this is by going to the directory that the content was downloaded to and copy the name of the folder name inside of the source directory
+                
+
+4:  Target build or build you are currently deploying  to clients, This can be used later for filtering 
+5: Name of the Run Script when you imported It into the console 
+ 
+
+
+Click load data
+  
+
+Avg Online time :  Time the feature upgrade is running behind the scenes while users are still working
+Avg Post Reboot Time: Time the computer took to reboot and complete the update 
+Avg Total time: Total time the feature upgrade took to run, does not include the time the machine is waiting for a user to reboot the computer 
+Avg Upgrade time by model:  Count of each model that ran the upgrade and the average total time it took for that model to complete the upgrade. 
